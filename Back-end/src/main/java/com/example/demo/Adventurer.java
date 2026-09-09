@@ -38,7 +38,7 @@ public class Adventurer {
 
     @Min(0)
     private int xp = 0;
-    private int gold = 0;
+    private int gold = 0;  d
 
 
     public int getId(){
