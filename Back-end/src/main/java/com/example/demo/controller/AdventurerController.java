@@ -5,9 +5,7 @@ import com.example.demo.entity.Adventurer;
 import com.example.demo.service.AdventurerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,6 +31,14 @@ public class AdventurerController {
             return ResponseEntity.ok(adventurer);
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @RequestMapping
+    
+
+    @PostMapping("/api/adventurers")
+    public List<Adventurer> createAdventurers(){
+        return adventurerService.createAdventurer();
     }
 
 }
