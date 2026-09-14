@@ -4,6 +4,8 @@ package com.example.demo.controller;
 import com.example.demo.entity.Adventurer;
 import com.example.demo.service.AdventurerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,12 +35,29 @@ public class AdventurerController {
         return ResponseEntity.notFound().build();
     }
 
-    @RequestMapping
-    
 
     @PostMapping("/api/adventurers")
-    public List<Adventurer> createAdventurers(){
-        return adventurerService.createAdventurer();
+    public ResponseEntity<Adventurer> createAdventurer(@RequestBody Adventurer adventurer){
+        Adventurer savedAdventurer = adventurerService.createAdventurer(adventurer);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedAdventurer);
     }
+
+    @PutMapping("/api/adventurers/{id}")
+    public ResponseEntity<Adventurer> updateAdventurer(@PathVariable int id,
+                                                       @RequestBody Adventurer adventurer){
+        Adventurer updatedAdventurer = adventurerService.updateAdventurer(id, adventurer);
+        return ResponseEntity.status(HttpStatus.OK).body(updatedAdventurer);
+    }
+
+    @DeleteMapping("/api/adventurers/{id}")
+    public ResponseEntity<Adventurer> deleteAdventurer(@PathVariable int id){
+        
+        Adventurer removedAdventurer = adventurerService.deleteAdventurer(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(removedAdventurer);
+    }
+
+
+
+
 
 }
