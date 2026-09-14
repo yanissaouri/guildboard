@@ -10,20 +10,37 @@ import java.util.List;
 @Service
 public class QuestService {
 
-    public List<Quest> getAllQuest(){
-        return QuestRepository.findAll(); }
-
+    public List<Quest> getAllQuests(){
+        return QuestRepository.findAll();
+    }
 
     @Autowired
     private QuestRepository QuestRepository;
 
     public Quest findById(int id){
         return QuestRepository.findById(id).orElseThrow(
-                () -> new RuntimeException("No quest found with this id" + id));
+                () -> new RuntimeException("No Quest found with this id " + id));
     }
 
-    public List<Quest> createQuest(){
-        return null;
+    public Quest createQuest(Quest Quest){
+        return QuestRepository.save(Quest);
+    }
+
+    public Quest updateQuest(int id, Quest Quest){
+        Quest existingQuest = QuestRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("No Quest found with this id " + id));
+        existingQuest.setTitle(Quest.getTitle());
+        existingQuest.setDifficulty(Quest.getdifficulty());
+        existingQuest.setGoldreward(Quest.getGoldreward());
+        existingQuest.setXpreward(Quest.getXpreward());
+        existingQuest.setLevel(Quest.getRequiredLevel());
+        return QuestRepository.save(existingQuest);
+    }
+
+    public Quest deleteQuest(int id){
+        Quest existingQuest = QuestRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("No Quest found with this id " + id));
+        QuestRepository.delete(existingQuest);
+        return existingQuest;
     }
 }
-
