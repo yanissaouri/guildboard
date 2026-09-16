@@ -54,7 +54,7 @@ private int goldreward = 0;
         return requiredlevel;
     }
 
-    public void setLevel(int requiredlevel){
+    public void setRequiredlevel(int requiredlevel){
         this.requiredlevel = requiredlevel;
     }
 
