@@ -51,7 +51,7 @@ public class AssignmentService {
 
     }
 
-    public completedAssignment(int assignmentId){
+    public Assignment completedAssignment(int assignmentId){
         Assignment assignment = assignmentRepository.findById(assignmentId).orElseThrow(
                 () -> new RuntimeException("No assignment found with this id " + assignmentId));
         Adventurer adventurer = assignment.getAdventurer();
