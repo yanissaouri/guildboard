@@ -22,8 +22,8 @@ public class QuestService {
                 () -> new RuntimeException("No Quest found with this id " + id));
     }
 
-    public Quest createQuest(Quest Quest){
-        return QuestRepository.save(Quest);
+    public Quest createQuest(Quest quest){
+        return QuestRepository.save(quest);
     }
 
     public Quest updateQuest(int id, Quest Quest){
