@@ -2,7 +2,9 @@ package com.example.demo.service;
 
 
 import com.example.demo.entity.Adventurer;
+import com.example.demo.entity.Assignment;
 import com.example.demo.repository.AdventurerRepository;
+import com.example.demo.repository.AssignmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,4 +46,5 @@ public class AdventurerService {
         adventurerRepository.delete(existingAdventurer);
         return existingAdventurer;
     }
+
 }

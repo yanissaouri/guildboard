@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 
 import com.example.demo.entity.Adventurer;
+import com.example.demo.entity.Assignment;
 import com.example.demo.service.AdventurerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,7 +35,6 @@ public class AdventurerController {
         }
         return ResponseEntity.notFound().build();
     }
-
 
     @PostMapping("/api/adventurers")
     public ResponseEntity<Adventurer> createAdventurer(@RequestBody Adventurer adventurer){

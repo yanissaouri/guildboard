@@ -28,11 +28,15 @@ private String title;
     private Difficulty difficulty;
 
     @Min(1)
-    private int requiredlevel = 1;
-    private int xpreward = 1;
+    private int requiredLevel = 1;
+    private int xpReward = 1;
 
 @Min(0)
-private int goldreward = 0;
+private int goldReward = 0;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
 
     public int getId(){
         return id;
@@ -51,35 +55,43 @@ private int goldreward = 0;
     }
 
     public int getRequiredLevel(){
-        return requiredlevel;
+        return requiredLevel;
     }
 
-    public void setLevel(int requiredlevel){
-        this.requiredlevel = requiredlevel;
+    public void setRequiredLevel(int requiredLevel){
+        this.requiredLevel = requiredLevel;
     }
 
-    public int getXpreward(){
-        return xpreward;
+    public int getXpReward(){
+        return xpReward;
     }
 
-    public void setXpreward(int xpreward){
-        this.xpreward = xpreward;
+    public void setXpReward(int xpReward){
+        this.xpReward = xpReward;
     }
 
-    public int getGoldreward(){
-        return goldreward;
+    public int getGoldReward(){
+        return goldReward;
     }
 
-    public void setGoldreward(int goldreward){
-        this.goldreward = goldreward;
+    public void setGoldReward(int goldReward){
+        this.goldReward = goldReward;
     }
 
-    public Difficulty getdifficulty() {
+    public Difficulty getDifficulty() {
         return difficulty;
     }
 
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public Status getStatus(){
+        return status;
+    }
+
+    public  void setStatus(Status status){
+        this.status = status;
     }
 
 }
