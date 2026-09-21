@@ -32,4 +32,10 @@ public class AssignmentController {
         Assignment assignment = assignmentService.assignQuestToAdventurer(questId, adventurerId);
         return ResponseEntity.status(HttpStatus.CREATED).body(assignment);
     }
+
+    @PostMapping("/api/quests/{id}/completion")
+    public ResponseEntity<Assignment> completedAssignment(@PathVariable("id") int questId){
+        return null;
+
+    }
 }
